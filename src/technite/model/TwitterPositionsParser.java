@@ -48,47 +48,20 @@ public class TwitterPositionsParser {
 			System.out.println("Aqui3");
 			
 			
-			for (Response tweet: response) {
-				System.out.println(tweet.qtdTotal + "  -  " +
-						  tweet.coordinates.lng + "  -  " +
-						  tweet.coordinates.lat + "  -  " +
-						  tweet.text);
-				
-				System.out.println(ret.size());
-				
-				
-				
-				
-				Tweet meuTweet = new Tweet(tweet.qtdTotal, tweet.coordinates.lng,tweet.coordinates.lat,tweet.text);
-				
-				System.out.println("Tweet criado e adding no ret");
-				ret.add( meuTweet );
-				System.out.println("adicionado no ret");
-				
-			}
-			
-			
-//			response.forEach(tweet->{
+			response.forEach(tweet->{
 //				System.out.println(tweet.qtdTotal + "  -  " +
 //						  tweet.coordinates.lng + "  -  " +
 //						  tweet.coordinates.lat + "  -  " +
 //						  tweet.text);
 //				
 //				System.out.println(ret.size());
-//				
-//				
-//				
-//				
-//				Tweet meuTweet = new Tweet(tweet.qtdTotal, 
-//						  tweet.coordinates.lng,
-//						  tweet.coordinates.lat,
-//						  tweet.text);
-//				
-//				System.out.println("Tweet criado e adding no ret");
-//				ret.add( meuTweet );
-//				System.out.println("adicionado no ret");
-//						
-//			});
+
+				ret.add( new Tweet(tweet.qtdTotal, 
+						  tweet.coordinates.lng,
+						  tweet.coordinates.lat,
+						  tweet.text) );
+						
+			});
 			
 
 		} catch (IOException aE) {

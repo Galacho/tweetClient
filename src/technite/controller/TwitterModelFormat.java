@@ -86,7 +86,7 @@ public class TwitterModelFormat extends ALcyGeneralFormat {
 
 				if (aO instanceof ILcyLspMapComponent) {
 					ILspView view = ((ILcyLspMapComponent) aO).getMainView();
-					ILspLayer layer = new TwitterLayerFactory().createLayer(model);
+					ILspLayer layer = new TwitterLayerFactory().createLayer(model); 
 					view.addLayer(layer); 
 
 					TLspBalloonManager balloonManager = new TLspBalloonManager(view,
