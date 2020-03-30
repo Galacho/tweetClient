@@ -13,10 +13,10 @@ public class TwitterDataModel {
 	public static final String TWITTER_TEXT = "TEXT";
 
 	static {
-		System.out.println("Twitter API");
+		//System.out.println("Twitter API");
 		TLcdDataModelBuilder builder = new TLcdDataModelBuilder("Twitter API");
 
-		System.out.println("Tweet");
+		//System.out.println("Tweet");
 		TLcdDataTypeBuilder tweet = builder.typeBuilder("Tweet");
 		// Register each property.
 		tweet.addProperty(TWITTER_QTD, TLcdCoreDataTypes.LONG_TYPE).nullable(false);

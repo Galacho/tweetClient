@@ -81,8 +81,7 @@ public class TwitterModelFormat extends ALcyGeneralFormat {
 
 			@Override
 			public void handleDataSource(String aS, Object aO) throws IOException {
-				ILcdModel model = new TwitterAPIModelDecoder(
-						"5d34a82ead953aa375b7c1d6cc950de98c1f9a769b573a63d6fce0574e741257").decode(aS);
+				ILcdModel model = new TwitterAPIModelDecoder("").decode(aS);
 
 				if (aO instanceof ILcyLspMapComponent) {
 					ILspView view = ((ILcyLspMapComponent) aO).getMainView();

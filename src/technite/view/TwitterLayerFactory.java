@@ -47,11 +47,11 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 				.build();
 
 		// Two line styles to paint the path of a given track.
-		TLspLineStyle lineStyle = TLspLineStyle.newBuilder().color(new Color(235, 51, 0)).width(5).zOrder(1).build();
-		TLspLineStyle lineStyle2 = TLspLineStyle.newBuilder().color(Color.BLACK).width(7).zOrder(0).build();
+		///TLspLineStyle lineStyle = TLspLineStyle.newBuilder().color(new Color(235, 51, 0)).width(5).zOrder(1).build();
+		//TLspLineStyle lineStyle2 = TLspLineStyle.newBuilder().color(Color.BLACK).width(7).zOrder(0).build();
 
 		// Each vehicle is modelled as a polyline, that contains its path.
-		// This StyleTargetProvider extracts the last point of a vehicle, which is its
+		// This StyleTargetProvider extracts the last point of a tweet, which is its
 		// latest position.
 		// This way, we can style this point as an Icon.
 		ALspStyleTargetProvider asPoint = new ALspStyleTargetProvider() {
@@ -62,15 +62,15 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 			}
 		};
 
-		// Regular styler: show vehicles as points.
+		// Regular styler: show tweets as points.
 		TLspStyler regular = new TLspStyler(asPoint, iconStyle);
 
-		// Selected styler: show vehicles as point AND as a line, showing their entire
+		// Selected styler: show tweet as point AND as a line, showing their entire
 		// path.
 		ILspStyler selected = new ALspStyler() {
 			@Override
 			public void style(Collection<?> aCollection, ALspStyleCollector aCollector, TLspContext aContext) {
-				aCollector.objects(aCollection).styles(lineStyle, lineStyle2).submit();
+				//aCollector.objects(aCollection).styles(lineStyle, lineStyle2).submit();
 				aCollector.objects(aCollection).geometry(asPoint).style(iconStyle).submit();
 			}
 		};
