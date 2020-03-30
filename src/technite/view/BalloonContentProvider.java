@@ -1,5 +1,8 @@
 package technite.view;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,10 +32,22 @@ public class BalloonContentProvider implements ILcdBalloonContentProvider {
 		//System.out.println("qtd:" + qtd);
 		
 	    JPanel panel = new JPanel(  );
-	    panel.add( new JLabel( "Tweets: " ) );
-	    panel.add( new JLabel( String.format("%s", qtd) ) );
-	    panel.add( new JLabel( "Tweet : " + text ) );
-	    panel.add( new JLabel( String.format("%s", text) ) );
+	    GridBagLayout layout = new GridBagLayout();
+        panel.setLayout(layout);
+        GridBagConstraints gbc = new GridBagConstraints();
+        
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add( new JLabel( "Tweets: "+ qtd ),gbc );
+        
+        
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        panel.add( new JLabel( "Tweet : " + text ) ,gbc);
+        
+
 
 	    return panel; 
 	  }
