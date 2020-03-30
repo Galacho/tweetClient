@@ -30,22 +30,13 @@ public class TwitterPositionsParser {
 		//System.out.println("JSON:"+JSON);
 
 		try {
-			System.out.println("Aqui0");
 			List<Response> response = mapper.readValue(JSON, new TypeReference<List<Response>>(){});
 			
-			System.out.println("Aqui");
-			
-			
-			
-			System.out.println("Aqui1");
 			
 			if (response == null) {
 				System.err.println("No response from server");
 				return Collections.emptyList();
 			}
-			System.out.println("Aqui2");
-			System.out.println(response.size());
-			System.out.println("Aqui3");
 			
 			
 			response.forEach(tweet->{
