@@ -35,7 +35,7 @@ public class MainStart {
 
 		JFrame frame = new JFrame("Technite Twitter");
 
-		ILspLayer layer = new TwitterLayerFactory().addWorldLayer();
+		ILspLayer layerMapa = new TwitterLayerFactory().addWorldLayer();
 
 		frame.getContentPane().add(view.getHostComponent(), BorderLayout.CENTER);
 		frame.getContentPane().add(new TLcdLayerTree(view), BorderLayout.EAST);
@@ -57,7 +57,7 @@ public class MainStart {
 		frame.setVisible(true);
 
 		ILspLayer layerModelTwitter = new TwitterLayerFactory().createLayer(model);
-		view.addLayer(layer);
+		view.addLayer(layerMapa);
 		view.addLayer(layerModelTwitter);
 
 		TLspBalloonManager balloonManager = new TLspBalloonManager(view, view.getOverlayComponent(), Location.NO_LAYOUT,
@@ -69,7 +69,7 @@ public class MainStart {
 		view.getRootNode().addHierarchyPropertyChangeListener(listener);
 
 		try {
-			new TLspViewNavigationUtil(view).fit(layer);
+			new TLspViewNavigationUtil(view).fit(layerMapa);
 		} catch (TLcdNoBoundsException aE) {
 			aE.printStackTrace();
 		} catch (TLcdOutOfBoundsException aE) {
