@@ -1,0 +1,7 @@
+<factorypath>
+    <factorypathentry kind="EXTJAR" id="/Users/rparaujo/Documents/projects/TECHNITE/INSTALL/LuciadLightspeed_2020.0/lib/lcd_annotations.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/Users/rparaujo/Documents/projects/TECHNITE/FILES/lombok.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="com.ibm.etools.javaee.cdi.ext.ui" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="com.ibm.jaxrs.annotations.processor" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="com.ibm.jee.annotations.processor" enabled="false" runInBatchMode="false"/>
+</factorypath>
