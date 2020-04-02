@@ -30,7 +30,7 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 		setValue(TWITTER_POINT_LNG, aLon);
 		setValue(TWITTER_POINT_LAT, aLat);
 		
-		System.out.println(id);
+		//System.out.println(id);
 		
 		if (id == null) {
 			setValue(TWITTER_IDX, uuid);
