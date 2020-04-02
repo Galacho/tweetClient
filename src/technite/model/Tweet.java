@@ -21,7 +21,7 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 	 * @param Text Text of tweey
 	 */
 
-	public Tweet(long aQtd, double aLon, double aLat, String aText, String aHashTag) {
+	public Tweet(long aQtd, double aLon, double aLat, String aText, String aHashTag, Long id) {
 
 		String uuid = UUID.randomUUID().toString().replace("-", "");
 		
@@ -30,8 +30,13 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 		setValue(TWITTER_POINT_LNG, aLon);
 		setValue(TWITTER_POINT_LAT, aLat);
 		
-		//System.out.println(uuid);
-		setValue(TWITTER_IDX, uuid);
+		System.out.println(id);
+		
+		if (id == null) {
+			setValue(TWITTER_IDX, uuid);
+		}else {
+			setValue(TWITTER_IDX, ""+id);
+		}
 		
 		
 		setValue(TWITTER_TEXT, aText);

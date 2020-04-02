@@ -44,7 +44,8 @@ public class TwitterPositionsParser {
 						  tweet.coordinates.lng,
 						  tweet.coordinates.lat,
 						  tweet.text,
-						  tweet.hash_tag) );
+						  tweet.hash_tag,
+						  tweet.id) );
 						
 			});
 			
@@ -61,6 +62,7 @@ public class TwitterPositionsParser {
 		public int qtdTotal;
 		public String text;
 		public String hash_tag;
+		public Long id;
 	}
 
 	public static class Coordinates {
