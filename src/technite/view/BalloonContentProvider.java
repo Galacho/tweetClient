@@ -29,6 +29,8 @@ public class BalloonContentProvider implements ILcdBalloonContentProvider {
 
 		Long qtd = t.getQtd();
 		String text = t.getText();
+		String hash_tag = t.getHashTag();
+		
 		//System.out.println("qtd:" + qtd);
 		
 	    JPanel panel = new JPanel(  );
@@ -42,9 +44,12 @@ public class BalloonContentProvider implements ILcdBalloonContentProvider {
         gbc.gridy = 0;
         panel.add( new JLabel( "Tweets: "+ qtd ),gbc );
         
-        
         gbc.gridx = 0;
         gbc.gridy = 2;
+        panel.add( new JLabel( "Hash Tag: "+ hash_tag ),gbc );
+        
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         panel.add( new JLabel( "Tweet : " + text ) ,gbc);
         
 

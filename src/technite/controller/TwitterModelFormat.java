@@ -71,7 +71,7 @@ public class TwitterModelFormat extends ALcyGeneralFormat {
 		return new ALcyDataSourceHandler[] { new ALcyDataSourceHandler() {
 			@Override
 			public String getDisplayName() {
-				return "SPTrans";
+				return "Twitter";
 			}
 
 			@Override
@@ -106,7 +106,7 @@ public class TwitterModelFormat extends ALcyGeneralFormat {
 		return new ALcyFileTypeDescriptor[] { new ALcyFileTypeDescriptor() {
 			@Override
 			public String getDisplayName() {
-				return "Twitter API";
+				return "Twitter Technite API";
 			}
 
 			@Override

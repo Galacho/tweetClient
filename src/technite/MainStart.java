@@ -2,6 +2,8 @@ package technite;
 
 import com.luciad.gui.swing.TLcdOverlayLayout.Location;
 import com.luciad.model.ILcdModel;
+import com.luciad.model.transformation.TLcdTransformingModelFactory;
+import com.luciad.model.transformation.clustering.TLcdClusteringTransformer;
 import com.luciad.util.TLcdNoBoundsException;
 import com.luciad.util.TLcdOutOfBoundsException;
 import com.luciad.view.lightspeed.TLspAWTView;
@@ -33,6 +35,8 @@ public class MainStart {
 
 	private MainStart() {
 
+		System.out.println("MainStart");
+		
 		JFrame frame = new JFrame("Technite Twitter");
 
 		ILspLayer layerMapa = new TwitterLayerFactory().addWorldLayer();
@@ -53,6 +57,35 @@ public class MainStart {
 			aE.printStackTrace();
 		}
 
+		
+		
+//		//happening in different countries in different clusters.
+//		TLcdClusteringTransformer zoomedInClusteringTransformer =
+//		    TLcdClusteringTransformer.newBuilder()
+//		                             .defaultParameters()
+//		                             .clusterSize(10000)
+//		                             .minimumPoints(1)
+//		                             .build()
+//		                             .build();
+//		//When zoomed out, all the events can be clustered together.
+//		//Otherwise, we would end up with overlapping clusters as the countries become rather small
+//		TLcdClusteringTransformer zoomedOutClusteringTransformer =
+//		    TLcdClusteringTransformer.newBuilder()
+//		                             .defaultParameters()
+//		                             .clusterSize(10000)
+//		                             .minimumPoints(1)
+//		                             .build()
+//		                             .build();
+//		
+//		double scale = 1.0 / 25000000.0;
+//		TLcdClusteringTransformer scaleDependentClusteringTransformer =
+//		    TLcdClusteringTransformer.createMapScaleDependent(
+//		        new double[]{scale},
+//		        new TLcdClusteringTransformer[]{zoomedInClusteringTransformer, zoomedOutClusteringTransformer}
+//		    );
+		
+		
+		
 		frame.pack();
 		frame.setVisible(true);
 
@@ -77,4 +110,9 @@ public class MainStart {
 		}
 
 	}
+	
+	
+	
+	
+	
 }

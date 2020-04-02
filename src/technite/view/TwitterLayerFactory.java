@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,9 @@ import com.luciad.model.ILcdDataModelDescriptor;
 import com.luciad.model.ILcdModel;
 import com.luciad.model.ILcdModelDecoder;
 import com.luciad.model.TLcdCompositeModelDecoder;
+import com.luciad.model.TLcdDataObjectIndexedAnd2DBoundsIndexedModel;
+import com.luciad.model.transformation.TLcdTransformingModelFactory;
+import com.luciad.model.transformation.clustering.TLcdClusteringTransformer;
 import com.luciad.util.service.TLcdServiceLoader;
 import com.luciad.view.lightspeed.TLspContext;
 import com.luciad.view.lightspeed.layer.ALspSingleLayerFactory;
@@ -31,6 +35,7 @@ import com.luciad.view.lightspeed.style.styler.ALspStyleTargetProvider;
 import com.luciad.view.lightspeed.style.styler.ALspStyler;
 import com.luciad.view.lightspeed.style.styler.ILspStyler;
 import com.luciad.view.lightspeed.style.styler.TLspStyler;
+import com.sun.javafx.binding.SelectBinding.AsObject;
 
 import technite.model.Tweet;
 import technite.model.TwitterDataModel;
@@ -41,9 +46,20 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 
 		Map<ALspStyleTargetProvider, List<ALspStyle>> styles = new HashMap<>();
 
+//		Enumeration<Tweet> tweets = (Enumeration<Tweet>) aModel.elements();
+//		
+//		while(tweets.hasMoreElements()) {
+//			Tweet t = tweets.nextElement();
+//			System.out.print(""+t.getQtd());
+//			System.out.print("  -  "+t.getText());
+//			
+//		}
+		
+		
 		// We create a style to paint the latest vehicle positions as icons
 		TLspIconStyle iconStyle = TLspIconStyle.newBuilder()
-				.icon(new TLcdSymbol(TLcdSymbol.FILLED_CIRCLE, 10, Color.BLACK, new Color(173, 38, 0))).zOrder(2)
+				.icon(new TLcdSymbol(TLcdSymbol.FILLED_CIRCLE, 10, Color.BLACK, new Color(253, 253, 170)))
+				.zOrder(2)
 				.build();
 
 		// Two line styles to paint the path of a given track.
@@ -54,6 +70,7 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 		// This StyleTargetProvider extracts the last point of a tweet, which is its
 		// latest position.
 		// This way, we can style this point as an Icon.
+		
 		ALspStyleTargetProvider asPoint = new ALspStyleTargetProvider() {
 			@Override
 			public void getStyleTargetsSFCT(Object aO, TLspContext aContext, List<Object> aList) {
@@ -71,9 +88,21 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 			@Override
 			public void style(Collection<?> aCollection, ALspStyleCollector aCollector, TLspContext aContext) {
 				//aCollector.objects(aCollection).styles(lineStyle, lineStyle2).submit();
+				
 				aCollector.objects(aCollection).geometry(asPoint).style(iconStyle).submit();
 			}
 		};
+		
+//		TLcdClusteringTransformer transformer =
+//			    TLcdClusteringTransformer.newBuilder()
+//			                             .defaultParameters()
+//			                             .clusterSize(10000)
+//			                             .minimumPoints(2)
+//			                             .shapeProvider(new TweetClusterShapeProvider())
+//			                             .build()
+//			                             .build();
+//		
+//		ILcdModel transformingModel = TLcdTransformingModelFactory.createTransformingModel(aModel, transformer);
 
 		return TLspShapeLayerBuilder.newBuilder().model(aModel).bodyStyler(TLspPaintState.REGULAR, regular)
 				.bodyStyler(TLspPaintState.SELECTED, selected).build();

@@ -1,0 +1,16 @@
+# Global defaults for non-sample products (e.g. Lucy).
+# Override by creating a <product_main_class>.vmoptions file in the resources directory.
+# Overridden options are merged with this file.
+# For example, to override the max heap size for Lucy,
+# create <resources>/com/luciad/lucy/TLcyMain.vmoptions with only a value for -Xmx.
+# You can also specify an override file for 64-bit systems only,
+# by appending 64 to the product main class (e.g. TLcyMain64.vmoptions).
+# These defaults are not used for samples, see samples/default.vmoptions instead.
+-cp lib/*:licenses/*:licenses:samples/resources:resources:config:samples/lib/*
+-Xmx750m
+-Djava.net.useSystemProxies=true
+-Djava.util.logging.config.file=samples/resources/samples/logging.properties
+-Dsun.awt.noerasebackground=true
+-Dsun.java2d.opengl=false
+-Dswing.aatext=true
+-Dsun.java2d.d3d=false

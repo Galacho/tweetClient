@@ -40,17 +40,11 @@ public class TwitterPositionsParser {
 			
 			
 			response.forEach(tweet->{
-//				System.out.println(tweet.qtdTotal + "  -  " +
-//						  tweet.coordinates.lng + "  -  " +
-//						  tweet.coordinates.lat + "  -  " +
-//						  tweet.text);
-//				
-//				System.out.println(ret.size());
-
 				ret.add( new Tweet(tweet.qtdTotal, 
 						  tweet.coordinates.lng,
 						  tweet.coordinates.lat,
-						  tweet.text) );
+						  tweet.text,
+						  tweet.hash_tag) );
 						
 			});
 			
@@ -66,6 +60,7 @@ public class TwitterPositionsParser {
 		public Coordinates coordinates;
 		public int qtdTotal;
 		public String text;
+		public String hash_tag;
 	}
 
 	public static class Coordinates {
