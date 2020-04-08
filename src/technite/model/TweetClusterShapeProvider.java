@@ -2,6 +2,11 @@ package technite.model;
 
 import java.util.Set;
 
+///// https://dev.luciad.com/portal/productDocumentation/LuciadFusion/docs/articles/tutorial/model/clustering/model_clustering.html#_configuring_a_tlcdclusteringtransformer
+
+
+
+
 import com.luciad.datamodel.ILcdDataObject;
 import com.luciad.model.ILcdModel;
 import com.luciad.model.transformation.clustering.ILcdClusterShapeProvider;

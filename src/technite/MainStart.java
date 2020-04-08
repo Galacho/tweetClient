@@ -32,8 +32,18 @@ public class MainStart {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(MainStart::new);
 	}
+	
+	public void startMap() {
+		ILcdModel model = null;
+		try {
+			model = new TwitterAPIModelDecoder("").decode("");
+		} catch (IOException aE) {
+			aE.printStackTrace();
+		}
+		
+	}
 
-	private MainStart() {
+	public MainStart() {
 
 		System.out.println("MainStart");
 		

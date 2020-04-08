@@ -3,6 +3,7 @@ package technite.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -41,6 +42,7 @@ import technite.model.Tweet;
 import technite.model.TwitterDataModel;
 
 public class TwitterLayerFactory extends ALspSingleLayerFactory {
+	
 	@Override
 	public ILspLayer createLayer(ILcdModel aModel) {
 
@@ -61,6 +63,66 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 				.icon(new TLcdSymbol(TLcdSymbol.FILLED_CIRCLE, 10, Color.BLACK, new Color(253, 253, 170)))
 				.zOrder(2)
 				.build();
+		
+		
+		
+		///// novo
+		
+	    ILspStyler styler = new ALspStyler() {
+	        @Override
+	        public void style(Collection<?> aObjects, ALspStyleCollector aStyleCollector, TLspContext aContext) {
+	          
+	        	
+	    		
+	        	Enumeration<Tweet> tweets = (Enumeration<Tweet>) aContext.getModel().elements();
+	    		
+	        	while(tweets.hasMoreElements()) {
+	        		Tweet t = tweets.nextElement();
+	        		
+	        		Color c;
+	        		Long qtd = t.getQtd();
+	        		
+	        		Integer tam = (int) (qtd * 0.02);
+	        		
+	        		
+	        		
+	        		if (tam > 50) {
+	        			tam = 50;
+	        		}
+	        		
+	        		if (tam< 0) {
+	        			tam = 1;
+	        		}
+	        		
+	        		if (tam < 10) {
+	        			c = Color.YELLOW;
+	        		}else if(tam < 20 ) {
+	        			c= Color.ORANGE;
+	        		}else if (tam < 30) {
+	        			c=Color.CYAN;
+	        		}else if(tam < 40) {
+	        			c=Color.PINK;
+	        		}else {
+	        			c=Color.RED;
+	        		}
+	        		
+	        		TLcdSymbol sybolIcon = new TLcdSymbol(TLcdSymbol.FILLED_CIRCLE, tam, Color.WHITE, c);
+	        		
+	        	    TLspIconStyle iconStyle = TLspIconStyle.newBuilder()
+	        	                                                .icon(sybolIcon)
+	        	                                                .build();
+	        	    aStyleCollector.object(t).style(iconStyle).submit();
+	        		
+	        	}
+
+	        }
+	      };
+	    
+	    //////////////
+	    
+	   
+	    
+	    
 
 		// Two line styles to paint the path of a given track.
 		///TLspLineStyle lineStyle = TLspLineStyle.newBuilder().color(new Color(235, 51, 0)).width(5).zOrder(1).build();
@@ -80,7 +142,7 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 		};
 
 		// Regular styler: show tweets as points.
-		TLspStyler regular = new TLspStyler(asPoint, iconStyle);
+		//TLspStyler regular = new TLspStyler(asPoint, iconStyle);
 
 		// Selected styler: show tweet as point AND as a line, showing their entire
 		// path.
@@ -104,7 +166,10 @@ public class TwitterLayerFactory extends ALspSingleLayerFactory {
 //		
 //		ILcdModel transformingModel = TLcdTransformingModelFactory.createTransformingModel(aModel, transformer);
 
-		return TLspShapeLayerBuilder.newBuilder().model(aModel).bodyStyler(TLspPaintState.REGULAR, regular)
+//		return TLspShapeLayerBuilder.newBuilder().model(aModel).bodyStyler(TLspPaintState.REGULAR, styler)
+//				.bodyStyler(TLspPaintState.SELECTED, selected).build();
+		
+		return TLspShapeLayerBuilder.newBuilder().model(aModel).bodyStyler(TLspPaintState.REGULAR, styler)
 				.bodyStyler(TLspPaintState.SELECTED, selected).build();
 	}
 

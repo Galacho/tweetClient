@@ -5,6 +5,8 @@ import com.luciad.lucy.format.ALcyFormat;
 import com.luciad.lucy.format.TLcySafeGuardFormatWrapper;
 import com.luciad.lucy.util.ALcyTool;
 
+import technite.MainStart;
+
 public class TwitterModelFormatAddOn extends ALcyFormatAddOn {
 
 	public TwitterModelFormatAddOn() {
@@ -12,6 +14,7 @@ public class TwitterModelFormatAddOn extends ALcyFormatAddOn {
 				ALcyTool.getShortPrefix(TwitterModelFormatAddOn.class));
 		
 		System.out.println("TwitterModelFormatAddOn");
+		//new MainStart().startMap();
 		
 	}
 
