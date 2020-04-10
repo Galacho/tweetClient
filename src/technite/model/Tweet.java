@@ -8,6 +8,9 @@ import com.luciad.datamodel.ILcdDataObject;
 import com.luciad.datamodel.TLcdDataObject;
 import com.luciad.datamodel.TLcdDataProperty;
 import com.luciad.datamodel.TLcdDataType;
+import com.luciad.shape.ILcdBounds;
+import com.luciad.shape.ILcdPoint;
+import com.luciad.shape.ILcdShape;
 import com.luciad.shape.shape2D.TLcdLonLatPolyline;
 
 public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
@@ -30,6 +33,9 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 		setValue(TWITTER_POINT_LNG, aLon);
 		setValue(TWITTER_POINT_LAT, aLat);
 		
+		
+
+		
 		//System.out.println(id);
 		
 		if (id == null) {
@@ -42,8 +48,14 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 		setValue(TWITTER_TEXT, aText);
 		setValue(TWITTER_HASHTAG, aHashTag);
 		
-
+		
+		
 		insert2DPoint(0, aLon, aLat);
+		
+		ILcdPoint point= (ILcdPoint) getBounds();
+		
+		//System.out.println(point);
+		setValue(TWITTER_POSITION, point);
 
 	}
 

@@ -13,6 +13,8 @@ import com.luciad.view.lightspeed.swing.TLspBalloonManager;
 import com.luciad.view.lightspeed.util.TLspViewNavigationUtil;
 import com.luciad.view.swing.TLcdLayerTree;
 
+import samples.lightspeed.clustering.MainPanel;
+import samples.lightspeed.common.LightspeedSample;
 import technite.model.TwitterAPIModelDecoder;
 import technite.view.BalloonContentProvider;
 import technite.view.BalloonViewSelectionListener;

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="files"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/LuciadLightspeedV20180"/>
 	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/development.jar"/>
+	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/lombok.jar"/>
+	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/config"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/lombok.jar"/>
 	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/samples"/>
 	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/resources"/>
-	<classpathentry kind="lib" path="/Users/rparaujo/Documents/projects/TECHNITE/FILES/config"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

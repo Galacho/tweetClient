@@ -40,13 +40,14 @@ public class TwitterPositionsParser {
 			
 			
 			response.forEach(tweet->{
-				ret.add( new Tweet(tweet.qtdTotal, 
-						  tweet.coordinates.lng,
-						  tweet.coordinates.lat,
-						  tweet.text,
-						  tweet.hash_tag,
-						  tweet.id) );
-						
+				//for(int i=0; i< tweet.qtdTotal; i++) {
+					ret.add( new Tweet(tweet.qtdTotal, 
+							  tweet.coordinates.lng,
+							  tweet.coordinates.lat,
+							  tweet.text,
+							  tweet.hash_tag,
+							  tweet.id) );
+				//}
 			});
 			
 

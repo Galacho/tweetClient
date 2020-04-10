@@ -21,6 +21,8 @@ public class TwitterDataModel {
 	
 	public static final String TWITTER_HASHTAG = "HASHTAG";
 	
+	public static final String TWITTER_POSITION = "POSITION";
+	
 
 	static {
 		//System.out.println("Twitter API");
@@ -37,6 +39,9 @@ public class TwitterDataModel {
 		
 		tweet.addProperty(TWITTER_POINT_LNG, TLcdCoreDataTypes.DOUBLE_TYPE ).nullable(false);
 		tweet.addProperty(TWITTER_POINT_LAT, TLcdCoreDataTypes.DOUBLE_TYPE ).nullable(false);
+		
+		tweet.addProperty(TWITTER_POSITION, TLcdCoreDataTypes.DATA_OBJECT_TYPE ).nullable(false);
+		
 		
 
 		DATA_MODEL = builder.createDataModel();
