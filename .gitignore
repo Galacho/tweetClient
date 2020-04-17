@@ -2,5 +2,6 @@ resources/
 samples/
 lucy/
 bin/
+src/samples
 
 *.class

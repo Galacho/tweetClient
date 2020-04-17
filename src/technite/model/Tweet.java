@@ -38,11 +38,11 @@ public class Tweet extends TLcdLonLatPolyline implements ILcdDataObject {
 		
 		//System.out.println(id);
 		
-		if (id == null) {
+		//if (id == null) {
 			setValue(TWITTER_IDX, uuid);
-		}else {
-			setValue(TWITTER_IDX, ""+id);
-		}
+		//}else {
+		//	setValue(TWITTER_IDX, ""+id);
+		//}
 		
 		
 		setValue(TWITTER_TEXT, aText);
