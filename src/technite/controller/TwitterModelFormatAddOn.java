@@ -13,20 +13,21 @@ public class TwitterModelFormatAddOn extends ALcyFormatAddOn {
 		super(ALcyTool.getLongPrefixWithClassName(TwitterModelFormatAddOn.class),
 				ALcyTool.getShortPrefix(TwitterModelFormatAddOn.class));
 		
-		System.out.println("TwitterModelFormatAddOn");
+		System.out.println("TwitterModelFormatAddOn - construtor");
 		//new MainStart().startMap();
+
 		
 	}
 
 	@Override
 	protected ALcyFormat createBaseFormat() {
-		System.out.println("createBaseFormat");
+		System.out.println("TwitterModelFormatAddOn - createBaseFormat");
 		return new TwitterModelFormat(getLucyEnv(), getLongPrefix(), getShortPrefix(), getPreferences());
 	}
 
 	@Override
 	protected ALcyFormat createFormatWrapper(ALcyFormat aFormat) {
-		System.out.println("createFormatWrapper");
+		System.out.println("TwitterModelFormatAddOn - createFormatWrapper");
 		return new TLcySafeGuardFormatWrapper(aFormat);
 	}
 }

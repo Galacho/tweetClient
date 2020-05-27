@@ -19,11 +19,12 @@ import com.luciad.view.lightspeed.style.styler.TLspCustomizableStyler;
 public class WayPointFormat extends ALcyLspStyleFormat {
 	  public WayPointFormat(ILcyLucyEnv aLucyEnv, String aLongPrefix, String aShortPrefix, ALcyProperties aPreferences, ILcdFilter<ILcdModel> aModelFilter) {
 	    super(aLucyEnv, aLongPrefix, aShortPrefix, aPreferences, aModelFilter);
-	    System.out.println("WayPointFormat");
+	    System.out.println("WayPointFormat - construtor");
 	  }
 	 
 	  @Override
 	  protected ILspLayerFactory createLayerFactoryImpl() {
+		  System.out.println("WayPointFormat - createLayerFactoryImpl");
 	    return new ALspSingleLayerFactory() {
 	      @Override
 	      public ILspLayer createLayer(ILcdModel aModel) {
@@ -52,6 +53,7 @@ public class WayPointFormat extends ALcyLspStyleFormat {
 	      public boolean canCreateLayers(ILcdModel aModel) {
 	        //The TLcyLspSafeGuardFormatWrapper only passes waypoint models
 	        //to this factory, so no need to check anything here
+	    	  System.out.println("WayPointFormat - canCreateLayers");
 	        return true;
 	      }
 	    };

@@ -12,6 +12,9 @@ public class WayPointAddOn extends ALcyLspFormatAddOn {
 	  public WayPointAddOn() {
 	    super(ALcyTool.getLongPrefix(WayPointAddOn.class),
 	          ALcyTool.getShortPrefix(WayPointAddOn.class));
+	    
+	    System.out.println("WayPointAddOn");
+	    
 	  }
 	 
 	  @Override
@@ -19,6 +22,8 @@ public class WayPointAddOn extends ALcyLspFormatAddOn {
 	    ILcdFilter<ILcdModel> modelFilter =
 	        (ILcdFilter<ILcdModel>) aModel -> "CWP".equals(aModel.getModelDescriptor().getTypeName());
 	 
+	        System.out.println("WayPoint - ALcyLspFormat");
+	        
 	    return new WayPointFormat(getLucyEnv(),
 	                              getLongPrefix(),
 	                              getShortPrefix(),
@@ -28,6 +33,7 @@ public class WayPointAddOn extends ALcyLspFormatAddOn {
 	 
 	  @Override
 	  protected ALcyLspFormat createFormatWrapper(ALcyLspFormat aBaseFormat) {
+		  System.out.println("Waypoint - ALcyLspFormat");
 	    return new TLcyLspSafeGuardFormatWrapper(aBaseFormat);
 	  }
 	 

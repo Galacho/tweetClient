@@ -19,6 +19,7 @@ class WayPointFormatBarFactory extends ALcyFormatBarFactory {
   private final String fShortPrefix;
  
   WayPointFormatBarFactory(ILcyLucyEnv aLucyEnv, ALcyProperties aProperties, String aShortPrefix) {
+	  System.out.println("WayPointFormatBarFactory - construtor");
     fLucyEnv = aLucyEnv;
     fProperties = aProperties;
     fShortPrefix = aShortPrefix;
@@ -32,6 +33,7 @@ class WayPointFormatBarFactory extends ALcyFormatBarFactory {
  
   @Override
   public ALcyFormatBar createFormatBar(ILcdView aView, ILcdLayer aLayer) {
+	  System.out.println("WayPointFormatBarFactory - createFormatBar");
     WayPointModelAddOn wayPointsModelAddOn = fLucyEnv.retrieveAddOnByClass(WayPointModelAddOn.class);
     return new WayPointFormatBar(findLspMapComponent(aView),
                                  fProperties,
@@ -41,6 +43,7 @@ class WayPointFormatBarFactory extends ALcyFormatBarFactory {
   }
  
   private TLcyLspMapComponent findLspMapComponent(ILcdView aView) {
+	  System.out.println("WayPointFormatBarFactory - findLspMapComponent");
     ILcyGenericMapComponent mapComponent = fLucyEnv.getCombinedMapManager().findMapComponent(aView);
     return mapComponent instanceof TLcyLspMapComponent ? (TLcyLspMapComponent) mapComponent : null;
   }

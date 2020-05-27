@@ -23,14 +23,17 @@ public class TwitterClusterIgnoringLabelStylerWrapper extends LabelStylerWrapper
 
 	  public TwitterClusterIgnoringLabelStylerWrapper(ILspStyler aDelegate) {
 	    super(aDelegate);
+	    System.out.println("TwitterClusterIgnoringLabelStylerWrapper - construtor");
 	    fDelegate = aDelegate;
 	  }
 
 	  @Override
 	  public void style(Collection<?> aObjects, ALspLabelStyleCollector aStyleCollector, TLspContext aContext) {
 	    List<Object> nonClusteredObjects = new ArrayList<>();
+	    System.out.println("TwitterClusterIgnoringLabelStylerWrapper - style");
 	    for (Object object : aObjects) {
 	      if (!(object instanceof TLcdCluster)) {
+	    	  System.out.println("TwitterClusterIgnoringLabelStylerWrapper - style - "+object.toString());
 	        nonClusteredObjects.add(object);
 	      }
 	    }

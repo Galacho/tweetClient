@@ -49,6 +49,9 @@ public class MainStart {
 
 		System.out.println("MainStart");
 		
+		
+		
+		
 		JFrame frame = new JFrame("Technite Twitter");
 
 		ILspLayer layerMapa = new TwitterLayerFactory().addWorldLayer();

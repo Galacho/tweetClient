@@ -27,10 +27,12 @@ import com.luciad.view.gxy.ILcdGXYLayerFactory;
 class WayPointModelFormat extends ALcyFileFormat {
   WayPointModelFormat(ILcyLucyEnv aLucyEnv, String aLongPrefix, String aShortPrefix, ALcyProperties aProperties) {
     super(aLucyEnv, aLongPrefix, aShortPrefix, aProperties);
+    System.out.println("WayPointModelFormat - WayPointModelFormat - construtor");
   }
  
   @Override
   protected ILcdModelDecoder[] createModelDecoders() {
+	  System.out.println("WayPointModelFormat - createModelDecoders");
     return new ILcdModelDecoder[]{new WayPointsModelDecoder()};
   }
  
@@ -38,16 +40,19 @@ class WayPointModelFormat extends ALcyFileFormat {
   protected ILcyModelContentTypeProvider createModelContentTypeProvider() {
     //All our models only contain point data, so we can return a fixed type
     //No need to check the contents of the model
+	  System.out.println("WayPointModelFormat - createModelContentTypeProvider");
     return aModel -> ILcyModelContentType.POINT;
   }
  
   @Override
   protected ILcyGXYLayerTypeProvider createGXYLayerTypeProvider() {
+	  System.out.println("WayPointModelFormat - createGXYLayerTypeProvider");
     return null;
   }
  
   @Override
   protected ILcdGXYLayerFactory createGXYLayerFactory() {
+	  System.out.println("WayPointModelFormat - createGXYLayerFactory");
     return null;
   }
  
@@ -55,16 +60,20 @@ class WayPointModelFormat extends ALcyFileFormat {
   public boolean isModelOfFormat(ILcdModel aModel) {
     //All the waypoint models created by our model decoder have CWP as type name
     //We assume here that this typename is unique over all supported formats
+	  System.out.println("WayPointModelFormat - isModelOfFormat");
+	  System.out.println("WayPointModelFormat - isModelOfFormat - "+ aModel.getModelDescriptor().getTypeName());
     return "CWP".equals(aModel.getModelDescriptor().getTypeName());
   }
  
   @Override
   protected ILcdModelEncoder[] createModelEncoders() {
+	  System.out.println("WayPointModelFormat - createModelEncoders");
     return new ILcdModelEncoder[]{new WayPointsModelEncoder()};
   }
  
   @Override
   protected ILcyCustomizerPanelFactory[] createDomainObjectCustomizerPanelFactories() {
+	  System.out.println("WayPointModelFormat - createDomainObjectCustomizerPanelFactories");
     return new ILcyCustomizerPanelFactory[]{
         new ILcyCustomizerPanelFactory() {
           @Override
@@ -83,6 +92,7 @@ class WayPointModelFormat extends ALcyFileFormat {
  
   @Override
   protected ALcyDefaultModelDescriptorFactory[] createDefaultModelDescriptorFactories() {
+	  System.out.println("WayPointModelFormat - createDefaultModelDescriptorFactories");
     return new ALcyDefaultModelDescriptorFactory[]{
         new ALcyDefaultModelDescriptorFactory() {
           @Override
@@ -101,6 +111,7 @@ class WayPointModelFormat extends ALcyFileFormat {
  
   @Override
   protected ILcdModelFactory createModelFactory() {
+	  System.out.println("WayPointModelFormat - createModelFactory");
     return new ILcdModelFactory() {
       @Override
       public ILcdModel createModel(ILcdModelDescriptor aModelDescriptor, ILcdModelReference aModelReference) throws IllegalArgumentException {

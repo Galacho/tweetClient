@@ -112,7 +112,6 @@ public class TwitterAPIModelDecoder implements ILcdModelDecoder {
 			return JSON;
 		}
 		
-		
 		URL regUrl = new URL(url + hashTag + "/1");
 
 		System.out.println("apiGETData :"+hashTag );

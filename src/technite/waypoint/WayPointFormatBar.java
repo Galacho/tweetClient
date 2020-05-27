@@ -32,6 +32,7 @@ class WayPointFormatBar extends ALcyFormatBar {
                     String aShortPrefix,
                     ALcyDefaultModelDescriptorFactory aDefaultModelDescriptorFactory,
                     ILcyLucyEnv aLucyEnv) {
+	  System.out.println("WayPointFormatBar - construtor");
     putValue(ALcyFormatBar.NAME, "Way Points");
     putValue(ALcyFormatBar.SHORT_DESCRIPTION, "Create way points");
  
@@ -55,6 +56,7 @@ class WayPointFormatBar extends ALcyFormatBar {
  
   @Override
   protected void updateForLayer(ILcdLayer aPreviousLayer, ILcdLayer aLayer) {
+	  System.out.println("WayPointFormatBar - updateForLayer");
     fControllerModel.setCurrentLayer((ILspInteractivePaintableLayer) aLayer);
   }
  

@@ -71,6 +71,8 @@ public final class WayPointsModelDecoder implements ILcdModelDecoder {
  
   @Override
   public ILcdModel decode(String aSourceName) throws IOException {
+	  
+	  System.out.println("WayPointsModelDecoder - decode");
     //Sanity check to see whether we can decode the data
     if (!canDecodeSource(aSourceName)) {
       throw new IOException("Cannot decode " + aSourceName);
@@ -107,6 +109,7 @@ public final class WayPointsModelDecoder implements ILcdModelDecoder {
   }
  
   private ILcdDataModelDescriptor createModelDescriptor(String aSourceName) {
+	  System.out.println("WayPointsModelDecoder - createModelDescriptor");
     return new TLcdDataModelDescriptor(aSourceName,
                                        "CWP", //Typename: identifier of the format
                                        "Way Points",//Display name for the model
@@ -117,7 +120,7 @@ public final class WayPointsModelDecoder implements ILcdModelDecoder {
  
   private List<ILcdDataObject> createWayPoints(String aSourceName) throws IOException {
     List<ILcdDataObject> result = new ArrayList<>();
- 
+    System.out.println("WayPointsModelDecoder - createWayPoints");
     //Use TLcdInputStreamFactory to create an InputStream for aSourceName
     //This allows to read files on the class path, absolute file paths, files embedded in a jar, ...
     TLcdInputStreamFactory isf = new TLcdInputStreamFactory();
@@ -126,6 +129,7 @@ public final class WayPointsModelDecoder implements ILcdModelDecoder {
  
       String line;
       while ((line = reader.readLine()) != null) {
+    	  System.out.println("WayPointsModelDecoder - createWayPoints - "+line);
         //Skip empty lines
         if (line.trim().isEmpty()) {
           continue;
@@ -159,6 +163,7 @@ public final class WayPointsModelDecoder implements ILcdModelDecoder {
           }
           //Create the waypoint and set the properties
           ILcdDataObject wayPoint = WAYPOINT_TYPE.newInstance();
+          System.out.println("WayPointsModelDecoder - createWayPoints - wayPointIdentifier - "+wayPointIdentifier);
           wayPoint.setValue("identifier", wayPointIdentifier);
           wayPoint.setValue("location", new TLcdLonLatHeightPoint(lon, lat, height));
  

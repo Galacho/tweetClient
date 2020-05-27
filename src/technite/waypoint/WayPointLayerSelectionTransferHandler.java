@@ -21,7 +21,8 @@ final class WayPointLayerSelectionTransferHandler extends ALcyDefaultLayerSelect
  
   @Override
   protected ILcdDataObject createDomainObjectCopy(ILcdDataObject aDomainObject, ILcdModel aSourceModel, ILcdModel aTargetModel) {
-    if (aSourceModel.getModelReference().equals(aTargetModel.getModelReference())) {
+	  System.out.println("WayPointLayerSelectionTransferHandler - createDomainObjectCopy");
+	if (aSourceModel.getModelReference().equals(aTargetModel.getModelReference())) {
       //no transformation needed as we only copy between models of the same reference
       ILcdDataObject copy = WayPointsModelDecoder.WAYPOINT_TYPE.newInstance();
       copy.setValue("identifier", aDomainObject.getValue("identifier"));
@@ -34,6 +35,7 @@ final class WayPointLayerSelectionTransferHandler extends ALcyDefaultLayerSelect
   @Override
   protected ILcdDataObject createDomainObjectForShape(ILcdShape aShape, ILcdModel aSourceModel, ILcdModel aTargetModel) {
     if (aShape instanceof ILcdPoint) {
+    	System.out.println("WayPointLayerSelectionTransferHandler - createDomainObjectForShape");
       fTransformer.setSourceReference(aSourceModel.getModelReference());
       fTransformer.setDestinationReference(aTargetModel.getModelReference());
  
@@ -55,6 +57,7 @@ final class WayPointLayerSelectionTransferHandler extends ALcyDefaultLayerSelect
  
   @Override
   protected ILcdShape createShapeCopy(ILcdShape aShape, ILcdModel aSourceModel) {
+	  System.out.println("WayPointLayerSelectionTransferHandler - createShapeCopy");
     ILcdPoint originalLocation = (ILcdPoint) aShape;
     TLcdLonLatHeightPoint copy = new TLcdLonLatHeightPoint();
     copy.move3D(originalLocation);
